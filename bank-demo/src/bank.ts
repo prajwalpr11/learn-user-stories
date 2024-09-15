@@ -49,7 +49,7 @@ export default class bank {
      * @param accountNumber -- Account number of the Account for the money to be deposited
      * @param amount -- amount to be deposited
      */
-    public depositAmount(accountNumber: string, amount: number) {
+    public depositAmount(accountNumber: string, amount: number): void {
         const account = this.findAccount(accountNumber);
         if (!account) {
             throw new Error("Account not found");
@@ -65,7 +65,7 @@ export default class bank {
      * @param accountNumber -- Account number of the Account for the money to be deposited
      * @param amount -- amount to be deposited
      */
-    public withdrawAmount(accountNumber: string, amount: number) {
+    public withdrawAmount(accountNumber: string, amount: number): void {
         const account = this.findAccount(accountNumber);
         if (!account) {
             throw new Error("Account not found");
@@ -79,6 +79,18 @@ export default class bank {
         account.balance -= amount;
     }
 
+    /**
+     * Displace the balance of the Account
+     * @param accountNumber -- Account number of the Account for the balance to be displayed
+     * @returns the balance of the account
+     */
+    public displayBalance(accountNumber: string): number {
+        const account = this.findAccount(accountNumber);
+        if (!account) {
+            throw new Error("Account not found");
+        }
+        return account.balance;
+    }
 
 
 }

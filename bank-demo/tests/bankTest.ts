@@ -99,3 +99,23 @@ try {
 } catch (_) {
     console.log("Withdraw Senario 5 passed");
 }
+
+//scenario 1 Display Balance
+try {
+    bank.displayBalance("1234");
+    if (account.balance === 200) {
+        console.log("Balance displyed scenario 1 Passed");
+    } else {
+        console.log("Balance display scenario 1 failed");
+    }
+} catch (_) {
+    console.log("Balance display scenario 1 failed");
+}
+
+//scenario 5 withdraw Amount 
+try {
+    bank.displayBalance("3242");
+    console.log("Balance display scenario 2 failed");
+} catch (_) {
+    console.log("Balance display scenario 2 Passed");
+}
