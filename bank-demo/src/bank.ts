@@ -60,6 +60,25 @@ export default class bank {
         account.balance += amount;
     }
 
+    /**
+     * Withdraws amount from the Account
+     * @param accountNumber -- Account number of the Account for the money to be deposited
+     * @param amount -- amount to be deposited
+     */
+    public withdrawAmount(accountNumber: string, amount: number) {
+        const account = this.findAccount(accountNumber);
+        if (!account) {
+            throw new Error("Account not found");
+        }
+        if (amount <= 0) {
+            throw new Error("Please enter a valid amount");
+        }
+        if (amount > account.balance) {
+            throw new Error("Entered amount is greater than the current balance");
+        }
+        account.balance -= amount;
+    }
+
 
 
 }
